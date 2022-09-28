@@ -1,22 +1,23 @@
-﻿using LinqDemo; // for VideoGame
-using static System.Console; // all you use access all static method in Condole without Console prefix
+﻿using LinqDemo; // for VideoGame 
+using static System.Console;   // all you use access all static methods in Console class
+                               // without Console prefix
 
-// Create a new List of Video games with sample data
+// create a new List of VideoGame with sample data
 
 var games = new List<VideoGame>
 {
     new VideoGame("Diablo III","Nintendo",34.99,1),
-    new VideoGame("NBA 2k20 (PS4)","Playstation",49.99,2),
-    new VideoGame("NBA 2k20 (Switch)","Nintendo",49.99,3),
-    new VideoGame("NBA 2k20 (Xbox One)","Xbox",49.99,4),
-    new VideoGame("Forza Horizon 4","Xbox",34.99,5),
+    new VideoGame("NBA 2K20 (PS4)","Playstation",49.99,2),
+    new VideoGame("NBA 2K20 (Switch)","Nintendo",49.99,3),
+    new VideoGame("NBA 2K20 (Xbox One)","XBox",49.99,4),
+    new VideoGame("Forza Horizon 4","XBox",39.99,5),
     new VideoGame("Final Fantasy X","Nintendo",34.99,6),
     new VideoGame("The Outer Worlds","Playstation",49.99,7),
     new VideoGame("Kingdom Hearts 3","Playstation",19.99,8),
     new VideoGame("Overwatch Legendary Edition","Nintendo",34.99,9),
-    new VideoGame("WWE 2k20","Playstation",39.99,10),
+    new VideoGame("WWE 2K20","Playstation",39.99,10),
     new VideoGame("Kingdom Hearts 3","Xbox",19.99,11),
-    new VideoGame("Dragon Quesion Builders 2","Playstation",29.99,12),
+    new VideoGame("Dragon Question Builders 2","Playstation",29.99,12),
 };
 
 // Print all games to the screen using foreach statement
@@ -32,8 +33,9 @@ for (int index = 0; index < games.Count; index++)
     //Console.WriteLine(currentGame);
     WriteLine(currentGame);
 }
-// Print all games to the screen using the LinQ ForEach extension function 
+// Print all games to the screen using the LinQ ForEach extension function
 games.ForEach(currentGame => WriteLine(currentGame));
+
 //games.ForEach(currentGame => {
 //    WriteLine(currentGame);
 //});
@@ -50,7 +52,7 @@ foreach (var currentGame in nintendoGameQuery)
     WriteLine(currentGame);
 }
 
-// Print just the Title of each video game
+// Print just the Title of each VideoGame
 games.Select(currentGame => currentGame.Title)
     .ToList()
     .ForEach(title => WriteLine(title));
@@ -60,17 +62,8 @@ games.Select(currentGame => currentGame.Platform)
     .ToList()
     .ForEach(currentPlatform => WriteLine(currentPlatform));
 
-// Sum up all the Nintendo games
-double sumOfAllNintendoGames = games
+// Sum all the Nintendo games
+double sumOfAllNintendoGaemes = games
     .Where(item => item.Platform == "Nintendo")
     .Sum(item => item.Price);
-
-// Any games less than $20
-bool isAnyGamesLessThan20 = games.Any(item => item.Price < 20);
-// all games less than $50
-bool isAnyGamesLessThan50 = games.All(item => item.Price < 50);
-// No PC Games on Sales?
-bool isNoPcGamesOnSales = !games.Any(item => item.Platform == "Pc Games");
-
-
 

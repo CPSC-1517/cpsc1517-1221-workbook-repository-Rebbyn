@@ -8,10 +8,9 @@ namespace LinqDemo
 {
     public record VideoGame(
         string Title,
-        string Platform, // Playstation. Xbox, Nintendo, PC Games
+        string Platform,    // Playstation, Xbox, Nintendo, PC Games
         double Price,
         long WebCode
-     );
-
+    );
 
 }
